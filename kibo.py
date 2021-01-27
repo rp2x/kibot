@@ -1,20 +1,21 @@
-import random #Para poder seleccionar un random de nuestra lista
-from discord.ext import commands # Importamos commands de la libreria
+import random 
+from discord.ext import commands 
 import time
 
-TOKEN = "Nzk5MjkwODUwODE0NTkxMDA2.YABbnA.ra0bLZ311r2DsnFsXIebIxdzmYA" #El token secreto de nuestro BOT
+TOKEN = "" 
 wacamole=0
 
-bot = commands.Bot(command_prefix='#') # Le Decimos con que prefijo el bot #va a empezar escuchar para saber cual es el comando
+bot = commands.Bot(command_prefix="#")
 client = commands.Bot(command_prefix="#")
 
-
+#control por terminal(en desarrollo)
 @bot.command(name='@') #Nombre del comando
 async def randomMeme(ctx): #Funcion del coma                                                             
     response=input()    
     await ctx.send(response)
 
-@bot.command(name='T') #Nombre del comands
+#encuesta
+@bot.command(name='votacion') #Nombre del comands
 async def randomMeme(ctx,votacion,t:int):
             vote_msg = await ctx.channel.send(votacion)
             await vote_msg.add_reaction('✅')
@@ -29,7 +30,7 @@ async def randomMeme(ctx,votacion,t:int):
                 if reaction.emoji == '❎':
                     negative2 = reaction.count -1
                     time.sleep(t)
-                    await ctx.send('los reaultados son ')
+                    await ctx.send("los reaultados son",positive,"votos positivos y",negative2,"votos negativos")
                     
 
 
@@ -47,7 +48,7 @@ async def randomMeme(ctx): #Funcion del comando
             'htt ps://media.giphy.com/media/lFmmcqA4VBhMQ/giphy.gif',
             'https://media.giphy.com/media/V4NnsmEY7hsK4/giphy.gif'                                           
             ] 
-    #La lista con los g ifs                                                                                                                                                                             o
+                                                                                                                                                                            o
     await ctx.send(response) #Enviamos la respuesta al usuario
 
 
